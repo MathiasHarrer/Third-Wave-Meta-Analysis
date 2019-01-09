@@ -1,7 +1,7 @@
 ---
 title: "The Efficacy of Third Wave Interventions to Reduce Stress among Tertiary Students"
 subtitle: "A Meta-Analysis of Randomized-Controlled Trials"
-author: "Eva-Maria Rathner, Sonya Goosen, David Ebert, Mathias Harrer, Sophia Adam, Ann-Marie Küchler, Andreas Schwerdtfeger and Harald Baumeister"
+author: "Eva-Maria Rathner, Sonya Goosen, David Ebert, Mathias Harrer, Sophia Adam, Ann-Marie Küchler, Pim Cuijpers, Ronald C. Kessler, Andreas Schwerdtfeger and Harald Baumeister"
 bibliography: [MA_references.bib]
 output: 
   html_document:
@@ -31,12 +31,14 @@ This markdown describes analyses using the R packages **`meta`** [@schwarzer2015
 Knapp-Hartung-adjustments are used.
 
 ```{r}
-library(meta)
-library(metafor)
-library(knitr)
-library(kableExtra)
-library(dplyr)
-library(esc)
+require(meta)
+require(metafor)
+require(knitr)
+require(kableExtra)
+require(dplyr)
+require(ggplot2)
+require(esc)
+require(tidyr)
 
 load(file="Meta_Analysis_Data.RData")
 m<-metagen(TE,
@@ -443,9 +445,29 @@ subgroup.analysis.mixed.effects(data = m,
 ```
 
 
+## RoB Summary Plot
+
+```{r}
+load("robplot.data.RData")
+source("rob.summary.R")
+plot <- rob.summary(data = robplot.data)
+new.plot <- plot + scale_x_discrete(labels=c("Random_Sequence" = "Random Sequence Generation", 
+                                             "Allocation_Concealment" = "Allocation Concealment", 
+                                             "Blinding_Participants" = "Blinding (Participants)", 
+                                             "Blinding_Personnel" = "Blinding (Personnel)", 
+                                             "Incomplete_Data_Dropout" = "Incomplete Data (Dropout)", 
+                                             "Incomplete Data_ITT_Analysis" = "Incomplete Data (ITT Analysis)",
+                                             "Selective_Outcome_Reporting" = "Selective Outcome Reporting", 
+                                             "Similar_Groups" = "Similar Groups", 
+                                             "Compliance" = "Compliance", 
+                                             "Identical_Post_Timing" = "Identical Post Timing", 
+                                             "Co_Interventions" = "Co-Interventions"))
+new.plot
+
+```
+
   
 ## References
-
 
 
 
