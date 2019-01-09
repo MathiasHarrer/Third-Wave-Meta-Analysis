@@ -447,7 +447,7 @@ subgroup.analysis.mixed.effects(data = m,
 
 ## RoB Summary Plot
 
-```{r}
+```{r, fig.height=8, fig.width=10}
 load("robplot.data.RData")
 source("rob.summary.R")
 plot <- rob.summary(data = robplot.data)
