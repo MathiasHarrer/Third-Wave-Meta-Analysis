@@ -1,7 +1,7 @@
 ---
 title: "The Efficacy of Third Wave Interventions to Reduce Stress among Tertiary Students"
 subtitle: "A Meta-Analysis of Randomized-Controlled Trials"
-author: "Eva-Maria Rathner, Sonya Goosen, David Ebert, Mathias Harrer, Sophia Adam, Ann-Marie Küchler, Pim Cuijpers, Ronald C. Kessler, Andreas Schwerdtfeger and Harald Baumeister"
+author: "Eva-Maria Meßner, Sonya Goosen, David Ebert, Mathias Harrer, Sophia Adam, Ann-Marie Küchler, Pim Cuijpers, Andreas Schwerdtfeger and Harald Baumeister"
 bibliography: [MA_references.bib]
 output: 
   html_document:
